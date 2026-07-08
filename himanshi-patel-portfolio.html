@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Himanshi Patel — Graphic &amp; Motion Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F2F8;
+    --ink:#241B2F;
+    --ink-soft:#5B4E68;
+    --coral:#FF5A5F;
+    --chartreuse:#C6F135;
+    --violet:#8A7CA8;
+    --card:#FFFFFF;
+    --line:#DCD3E6;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; overflow-x:hidden;}
+  .display{font-family:'Space Grotesk', sans-serif;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 32px;}
+  a{color:inherit;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 32px; backdrop-filter:blur(10px); background:rgba(245,242,248,0.75);
+    border-bottom:1px solid var(--line);
+  }
+  nav .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;}
+  nav .links{display:flex; gap:28px; font-size:14px; font-weight:500;}
+  nav .links a{text-decoration:none; position:relative;}
+  nav .links a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--coral); transition:width .25s ease;}
+  nav .links a:hover::after{width:100%;}
+
+  /* HERO */
+  .hero{
+    position:relative; padding:120px 0 90px; overflow:hidden;
+  }
+  .blob{
+    position:absolute; width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--chartreuse), transparent 70%);
+    top:-160px; right:-140px; opacity:.55; filter:blur(30px);
+    animation:blobMove 12s ease-in-out infinite;
+  }
+  @keyframes blobMove{ 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-30px,40px) scale(1.08);} }
+  .eyebrow-tag{
+    display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px;
+    letter-spacing:.08em; text-transform:uppercase; background:var(--card); border:1px solid var(--line);
+    padding:6px 12px; border-radius:20px; margin-bottom:28px; opacity:0; animation:fadeUp .7s ease forwards .1s;
+  }
+  .eyebrow-tag::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--coral); display:inline-block;}
+  h1.name{
+    font-size:clamp(52px, 9vw, 116px); line-height:0.95; letter-spacing:-0.03em; font-weight:700;
+    overflow:hidden;
+  }
+  h1.name span{display:inline-block; opacity:0; transform:translateY(100%); animation:riseIn .8s cubic-bezier(.2,.8,.2,1) forwards;}
+  @keyframes riseIn{ to{opacity:1; transform:translateY(0);} }
+  .role{
+    font-size:clamp(18px,2.4vw,26px); color:var(--ink-soft); margin-top:20px; max-width:560px;
+    opacity:0; animation:fadeUp .7s ease forwards .6s;
+  }
+  .role em{font-style:normal; color:var(--coral); font-weight:600;}
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+  .hero-cta{margin-top:36px; display:flex; gap:14px; opacity:0; animation:fadeUp .7s ease forwards .8s;}
+  .btn{
+    font-family:'JetBrains Mono',monospace; font-size:13px; padding:12px 22px; border-radius:30px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:transform .2s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--ink); color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px); background:var(--coral);}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink);}
+  .btn-ghost:hover{transform:translateY(-2px); border-color:var(--ink);}
+
+  /* MARQUEE SKILLS */
+  .marquee-wrap{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--ink); overflow:hidden; padding:18px 0;}
+  .marquee{display:flex; gap:40px; width:max-content; animation:scrollX 22s linear infinite;}
+  .marquee span{font-family:'Space Grotesk',sans-serif; font-size:20px; color:#fff; white-space:nowrap; display:flex; align-items:center; gap:14px;}
+  .marquee span::after{content:"◆"; color:var(--chartreuse); font-size:12px;}
+  @keyframes scrollX{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ABOUT */
+  section{padding:100px 0;}
+  .section-label{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--coral); letter-spacing:.1em; text-transform:uppercase; margin-bottom:18px;}
+  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:start;}
+  .about-grid h2{font-size:clamp(26px,3.4vw,38px); line-height:1.25; font-weight:500; font-family:'Space Grotesk',sans-serif;}
+  .about-grid h2 strong{color:var(--coral); font-weight:700;}
+  .fact-list{display:flex; flex-direction:column; gap:18px; border-top:1px solid var(--line); padding-top:20px;}
+  .fact-row{display:flex; justify-content:space-between; font-size:14px; padding-bottom:18px; border-bottom:1px solid var(--line);}
+  .fact-row .k{color:var(--ink-soft); font-family:'JetBrains Mono',monospace;}
+  .fact-row .v{font-weight:600;}
+
+  /* WORK GRID */
+  .work-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .work-card{
+    background:var(--card); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+    text-decoration:none; color:var(--ink); display:block; position:relative;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .work-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(36,27,47,0.12);}
+  .work-thumb{
+    height:200px; display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',sans-serif; font-size:15px; color:#fff; position:relative; overflow:hidden;
+  }
+  .work-thumb .tag{position:absolute; top:14px; left:14px; font-family:'JetBrains Mono',monospace; font-size:11px; background:rgba(255,255,255,.18); padding:4px 10px; border-radius:20px;}
+  .work-thumb::after{
+    content:""; position:absolute; inset:0; background:rgba(0,0,0,0);
+    transition:background .3s ease;
+  }
+  .work-card:hover .work-thumb::after{background:rgba(0,0,0,0.08);}
+  .thumb-1{background:linear-gradient(135deg,#1F6E8C,#E4482F);}
+  .thumb-2{background:linear-gradient(135deg,#241B2F,#8A7CA8);}
+  .thumb-3{background:linear-gradient(135deg,#FF5A5F,#F2A73B);}
+  .thumb-4{background:linear-gradient(135deg,#123952,#1F6E8C);}
+  .work-body{padding:22px 24px 26px;}
+  .work-body h3{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600;}
+  .work-body p{font-size:13.5px; color:var(--ink-soft); margin-top:8px; line-height:1.55;}
+  .work-body .arrow{margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:12px; display:flex; align-items:center; gap:6px;}
+  .work-card:hover .arrow{color:var(--coral);}
+
+  /* CONTACT */
+  .contact{background:var(--ink); color:#fff; border-radius:8px; padding:70px 50px; text-align:center; position:relative; overflow:hidden;}
+  .contact h2{font-size:clamp(32px,5vw,58px); font-family:'Space Grotesk',sans-serif; font-weight:600; line-height:1.1;}
+  .contact p{margin-top:16px; color:#cfc4de; font-size:16px;}
+  .contact .btn-primary{background:var(--chartreuse); color:var(--ink); margin-top:32px;}
+  .contact .btn-primary:hover{background:var(--coral); color:#fff;}
+  .contact-links{margin-top:40px; display:flex; justify-content:center; gap:28px; font-family:'JetBrains Mono',monospace; font-size:13px; flex-wrap:wrap;}
+  .contact-links a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,.3); padding-bottom:2px;}
+  .contact-links a:hover{border-color:var(--chartreuse); color:var(--chartreuse);}
+
+  footer{padding:36px 0; text-align:center; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft);}
+
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (max-width:760px){
+    nav .links{display:none;}
+    .about-grid{grid-template-columns:1fr;}
+    .work-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">HP<span style="color:var(--coral)">.</span></div>
+  <div class="links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="blob"></div>
+  <div class="wrap">
+    <div class="eyebrow-tag">Available for freelance &amp; internship work</div>
+    <h1 class="name" id="animName"></h1>
+    <p class="role">Graphic &amp; motion designer crafting <em>brand identities</em>, animated explainers, and interfaces that move with purpose.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">View Work ↓</a>
+      <a href="mailto:himanshi.patel@example.com" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</div>
+
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Illustrator</span><span>Photoshop</span><span>After Effects</span><span>Figma</span><span>Adobe XD</span><span>Premiere Pro</span><span>InDesign</span><span>Blender</span>
+    <span>Illustrator</span><span>Photoshop</span><span>After Effects</span><span>Figma</span><span>Adobe XD</span><span>Premiere Pro</span><span>InDesign</span><span>Blender</span>
+  </div>
+</div>
+
+<section class="wrap" id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <h2 class="reveal">I'm <strong>Himanshi</strong> — a graphic and motion designer who likes making static ideas move. My work spans brand systems, UI micro-interactions, and short animated explainers, built with an eye for typography and timing.</h2>
+    <div class="fact-list reveal">
+      <div class="fact-row"><span class="k">BASED IN</span><span class="v">India</span></div>
+      <div class="fact-row"><span class="k">FOCUS</span><span class="v">Branding · Motion · UI</span></div>
+      <div class="fact-row"><span class="k">TOOLS</span><span class="v">Adobe CC, Figma, Blender</span></div>
+      <div class="fact-row"><span class="k">STATUS</span><span class="v">Open to internships</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="work">
+  <div class="section-label">Selected Work</div>
+  <h2 class="display reveal" style="font-size:clamp(28px,4vw,42px); font-weight:600; margin-bottom:44px;">Four projects, one process.</h2>
+  <div class="work-grid">
+    <a class="work-card reveal" href="climate-change-infographic.html" target="_blank">
+      <div class="work-thumb thumb-1"><span class="tag">Animated Infographic</span></div>
+      <div class="work-body">
+        <h3>1.5°C and Rising</h3>
+        <p>A scrollytelling climate-change infographic with animated data visualization and a warming-stripes motif.</p>
+        <div class="arrow">View live project →</div>
+      </div>
+    </a>
+    <a class="work-card reveal" href="#" target="_blank">
+      <div class="work-thumb thumb-2"><span class="tag">Brand Identity</span></div>
+      <div class="work-body">
+        <h3>Kōra — Startup Brand Kit</h3>
+        <p>Full identity system for a fictional sustainable-goods startup: logo, palette, type, and an animated logo intro.</p>
+        <div class="arrow">Case study coming soon →</div>
+      </div>
+    </a>
+    <a class="work-card reveal" href="#" target="_blank">
+      <div class="work-thumb thumb-3"><span class="tag">UI / UX</span></div>
+      <div class="work-body">
+        <h3>Pulse — Fitness App</h3>
+        <p>Mobile app UI with micro-interaction prototypes for onboarding, workout tracking, and progress rings.</p>
+        <div class="arrow">Case study coming soon →</div>
+      </div>
+    </a>
+    <a class="work-card reveal" href="#" target="_blank">
+      <div class="work-thumb thumb-4"><span class="tag">Motion / Social</span></div>
+      <div class="work-body">
+        <h3>Campaign Week — Motion Posts</h3>
+        <p>A week-long social campaign mixing static carousels with short motion posts, built for brand consistency.</p>
+        <div class="arrow">Case study coming soon →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="wrap" id="contact">
+  <div class="contact reveal">
+    <h2>Let's make<br>something move.</h2>
+    <p>Open to internship, freelance, and collaboration opportunities.</p>
+    <a href="mailto:himanshi.patel@example.com" class="btn btn-primary">Say hello →</a>
+    <div class="contact-links">
+      <a href="mailto:himanshi.patel@example.com">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>Designed &amp; built by Himanshi Patel · 2026</footer>
+
+<script>
+  // Animate name letter by letter
+  const nameText = "Himanshi Patel";
+  const nameEl = document.getElementById('animName');
+  [...nameText].forEach((ch,i)=>{
+    const span = document.createElement('span');
+    span.textContent = ch === ' ' ? '\u00A0' : ch;
+    span.style.animationDelay = (0.05*i)+'s';
+    nameEl.appendChild(span);
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
